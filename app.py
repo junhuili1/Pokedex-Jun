@@ -16,10 +16,18 @@ def allNamesLanguage(language):
         print(data[i]['name'][language])
         i+=1
 Language = input("What language would you like to use?")
-something = Language.lower()
-allNamesLanguage(something)
-# Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
+language = Language.lower()
+# allNamesLanguage(something)
 
+# Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
+def allNamesLanguageType(language,type):
+    i=0
+    for mon in data:
+        if type in data[i]["type"]:
+            print(data[i]["name"][language])
+Type = input("What type of pokemon would you like to find?")
+type = Type.capitalize()
+allNamesLanguageType(language,type)
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
 
