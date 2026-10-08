@@ -15,21 +15,30 @@ def allNamesLanguage(language):
     while i<809:
         print(data[i]['name'][language])
         i+=1
-Language = input("What language would you like to use?")
-language = Language.lower()
-# allNamesLanguage(something)
-
+language = input("What language would you like to use?").lower()
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
 def allNamesLanguageType(language,type):
-    i=0
-    for mon in data:
+    found = False
+    for i in range(len(data)):
         if type in data[i]["type"]:
             print(data[i]["name"][language])
-Type = input("What type of pokemon would you like to find?")
-type = Type.capitalize()
-allNamesLanguageType(language,type)
+            found = True
+    if found == False:
+        print(f"No pokemon was found with the type: {type}")
+
+# Type = input("What type of pokemon would you like to find?").capitalize()
+# allNamesLanguageType(language, Type)
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
+def named(language,name):
+    found = False
+    for i in range(len(data)):
+        if name in data[i]["name"][language]:
+            print(data[i]["name"][language])
+            found = True
+    if found == False:
+        print(f"No pokemon was found with the name: {name}")
 
-
+name = input("What is the name of the pokemon you would like to find?").capitalize()
+named(language,name)
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
 
