@@ -42,12 +42,18 @@ def named(language,name):
 
 name = input("What is the name of the pokemon you would like to find?").capitalize()
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
-def something(type):
+def something(name,language):
     found = False
-    named(language,name)
-    for i in range(len(move)):
-        if type in move[i]["type"]:
-            print(move[i]["ename"])
+    for i in range(len(data)):
+        if name in data[i]["name"][language]:
+            type = data[i]["type"]
             found = True
+    for m in range(len(type)):
+        for i in range(len(move)):
+            if type[m] in move[i]["type"]:
+                print(move[i]["ename"])
+                found = True
     if found == False:
         print("Error (definitely not too lazy to tell you the error)")
+
+something(name,language)
